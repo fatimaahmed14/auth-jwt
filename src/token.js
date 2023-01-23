@@ -26,7 +26,12 @@ function createTokenWithExpiry(payload, secret, expiryTime) {
  * 
  * Documentation: https://www.npmjs.com/package/jsonwebtoken#jwtverifytoken-secretorpublickey-options-callback
  */
-function verifyToken() {
+function verifyToken(token, secret) {
+    try {
+        return jwt.verify(token, secret)
+    } catch (e) {
+        return false
+    }
 
 }
 
